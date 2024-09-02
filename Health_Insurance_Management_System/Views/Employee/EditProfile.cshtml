@@ -1,0 +1,44 @@
+﻿@model Health_Insurance_Management_System.Models.Employee
+
+@{
+    ViewData["Title"] = "EditProfile";
+    Layout = "~/Views/Shared/_Employee.cshtml";
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1>Edit Profile</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditProfile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            <div class="form-group">
+                <label for="uname" class="control-label">Username</label>
+                <input name="uname" value="@Model.User.Username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="pass" class="control-label">Password</label>
+                <input type ="password" name="pass"class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Phone</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+        </div>
+    </div>
+</div>

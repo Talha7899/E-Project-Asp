@@ -1,0 +1,56 @@
+﻿@model Health_Insurance_Management_System.Models.Request
+
+@{
+    ViewData["Title"] = "EditPoliciesRequest";
+    Layout = "~/Views/Shared/_Employee.cshtml";
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1>EditPoliciesRequest</h1>
+
+<h4>Request</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPoliciesRequest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RequestId" />
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <input asp-for="EmployeeId" class="form-control" />
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsuranceCompanyId" class="control-label"></label>
+                <select asp-for="InsuranceCompanyId" class="form-control" asp-items="ViewBag.InsuranceCompany"></select>
+                <span asp-validation-for="InsuranceCompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyId" class="control-label"></label>
+                <select asp-for="PolicyId" class="form-control" asp-items="ViewBag.PolicyId"></select>
+                <span asp-validation-for="PolicyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Status" class="control-label"></label>
+            <select asp-for="Status" class="form-control">
+            <option disabled selected>Choose Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Cancel">Cancel</option>
+            </select>
+            <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary my-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+        </div>
+    </div>
+</div>

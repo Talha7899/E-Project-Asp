@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Health_Insurance_Management_System.Models.InsuranceCompany>
+
+@{
+    ViewData["Title"] = "ViewInsurance";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1 class="text-center">View All Insurance Companies</h1>
+
+<p>
+<a asp-action="AddInsurance" class="btn btn-primary text-white float-end mb-2">Add New Insurance</a>
+</p>
+<table class="table table-bordered table-hover table-dark text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+              <a asp-action="UpdateInsurance" class="btn btn-sm btn-warning" asp-route-id="@item.InsuranceCompanyId">Edit</a>
+              <a asp-action="DeleteInsurance" class="btn btn-sm btn-danger my-2" asp-route-id="@item.InsuranceCompanyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+</div>

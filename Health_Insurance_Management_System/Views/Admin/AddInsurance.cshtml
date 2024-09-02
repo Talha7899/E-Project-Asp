@@ -1,0 +1,42 @@
+﻿@model Health_Insurance_Management_System.Models.InsuranceCompany
+
+@{
+    ViewData["Title"] = "AddInsurance";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="app-wrapper">
+<div class="app-content pt-3 p-md-3 p-lg-4">
+<div class="container-xl">
+<h1>Add New Insurance</h1>
+<h4>Insurance Company</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddInsurance">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" placeholder="Company Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" placeholder="Company Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNumber" class="control-label"></label>
+                            <input asp-for="ContactNumber" placeholder="Company Phone" class="form-control" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <input type="submit" value="Add Insurance" class="btn btn-primary text-white" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="ViewInsurance" class="btn btn-outline-primary">Back to Insurance</a>
+</div>
+</div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model Health_Insurance_Management_System.Models.Policy
+
+@{
+    ViewData["Title"] = "AddPolicy";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1>Add Policy</h1>
+
+<h4>Policy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPolicy">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InsuranceCompanyId" class="control-label"></label>
+                <select asp-for="InsuranceCompanyId" class ="form-control" asp-items="ViewBag.InsuranceCompanyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyName" class="control-label"></label>
+                <input asp-for="PolicyName" class="form-control" />
+                <span asp-validation-for="PolicyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoverageDetails" class="control-label"></label>
+                <input asp-for="CoverageDetails" class="form-control" />
+                <span asp-validation-for="CoverageDetails" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <input type="submit" value="Add Policy" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AddPolicy" class="btn btn-primary">Back to List</a>
+</div>
+  </div>
+    </div>
+    </div>

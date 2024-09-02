@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Health_Insurance_Management_System.Models.Employee>
+
+@{
+    ViewData["Title"] = "ViewEmployees";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1>View Employees</h1>
+
+<p>
+<a asp-action="AddEmployee">Add New Employee</a>
+</p>
+<table class="table table-dark table-bordered table-hover text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+            Policy Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Username)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+            </th>
+            <th>
+            Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Policy.PolicyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Username)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+            <a asp-action="EditEmployee" class="form-control btn btn-warning" asp-route-id="@item.UserId">Edit</a>
+             <form asp-action="DeleteEmp">
+             <input type="hidden" name="Userid"value="@item.UserId"/>
+             <button type="submit" class="form-control btn btn-danger my-2">Delete</button>
+             </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+    </div>
+</div>

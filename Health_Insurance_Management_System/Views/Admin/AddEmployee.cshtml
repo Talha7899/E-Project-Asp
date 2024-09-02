@@ -1,0 +1,67 @@
+﻿@model Health_Insurance_Management_System.Models.User
+
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+    var emp = ViewBag.Employee as Health_Insurance_Management_System.Models.Employee;
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1>Add Employee</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddEmployee">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+           @*  <div class="form-group">
+                <label asp-for="EmpId" class="control-label"></label>
+                <input asp-for="EmpId" class="form-control" />
+                <span asp-validation-for="EmpId" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="@emp.Name" class="control-label"></label>
+                <input asp-for="@emp.Name" class="form-control" />
+                <span asp-validation-for="@emp.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@emp.Phone" class="control-label"></label>
+                <input asp-for="@emp.Phone" class="form-control" />
+                <span asp-validation-for="@emp.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@emp.Department" class="control-label"></label>
+                <input asp-for="@emp.Department" class="form-control" />
+                <span asp-validation-for="@emp.Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+        </div>
+    </div>
+</div>

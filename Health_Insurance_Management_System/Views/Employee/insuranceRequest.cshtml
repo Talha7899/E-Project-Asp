@@ -1,0 +1,45 @@
+﻿@model Health_Insurance_Management_System.Models.Request
+
+@{
+    ViewData["Title"] = "insuranceRequest";
+    Layout = "~/Views/Shared/_Employee.cshtml";
+
+    var userId = Convert.ToInt32(Context.Session.GetInt32("User_ID"));
+
+    var msg = ViewBag.msg;
+}
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+<h1>Insurance Request</h1>
+
+<h4>Request</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="text-danger">@msg</div>
+        <form asp-action="insuranceRequest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input name="userId" type="hidden" value="@userId" class="form-control" />
+            <div class="form-group">
+                <label asp-for="InsuranceCompanyId" class="control-label"></label>
+                <select asp-for="InsuranceCompanyId" class ="form-control" asp-items="ViewBag.InsuranceCompanyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyId" class="control-label"></label>
+                <select asp-for="PolicyId" class ="form-control" asp-items="ViewBag.PolicyId"></select>
+            </div>
+       
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+        </div>
+    </div>
+</div>
